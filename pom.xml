@@ -84,6 +84,7 @@
             <activation><activeByDefault>true</activeByDefault></activation>
             <modules>
                 <module>spring-cloud-deployer-accs</module>
+                <module>spring-cloud-dataflow-server-accs</module>
             </modules>
             <repositories>
                 <repository>
