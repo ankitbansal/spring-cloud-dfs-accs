@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+    oracle.paas.accs.deployer.spi.util.ACCSAutoConfiguration
