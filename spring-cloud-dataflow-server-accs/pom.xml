@@ -4,7 +4,6 @@
 
     <artifactId>spring-cloud-dataflow-server-accs</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <groupId>oracle.paas.accs</groupId>
     <packaging>jar</packaging>
 
     <description>ACCS Spring Cloud Dataflow Server</description>
@@ -25,7 +24,6 @@
 -->
 
     <properties>
-        <checkstyle.skip>true</checkstyle.skip>
         <start-class>oracle.paas.accs.dataflow.server.ACCSDataFlowServer</start-class>
         <spring-boot.version>1.5.4.RELEASE</spring-boot.version>
         <spring-cloud-dataflow.version>1.3.0.M2</spring-cloud-dataflow.version>
