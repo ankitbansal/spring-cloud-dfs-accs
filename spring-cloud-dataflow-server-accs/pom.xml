@@ -5,25 +5,27 @@
     <artifactId>spring-cloud-dataflow-server-accs</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
-
+    <groupId>oracle.paas.accs</groupId>
     <description>ACCS Spring Cloud Dataflow Server</description>
 
+    <!--
     <parent>
         <groupId>oracle.paas.accs</groupId>
         <artifactId>spring-cloud-dfs-accs</artifactId>
         <version>1.0.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-<!--
+    -->
+
     <parent>
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-dataflow-parent</artifactId>
         <version>1.3.0.M2</version>
         <relativePath />
     </parent>
--->
 
     <properties>
+        <checkstyle.skip>true</checkstyle.skip>
         <start-class>oracle.paas.accs.dataflow.server.ACCSDataFlowServer</start-class>
         <spring-boot.version>1.5.4.RELEASE</spring-boot.version>
         <spring-cloud-dataflow.version>1.3.0.M2</spring-cloud-dataflow.version>
