@@ -1,0 +1,18 @@
+server:
+  port: 8080
+security:
+  basic:
+    enabled: true
+    realm: Spring Cloud Data Flow
+spring:
+  cloud:
+    dataflow:
+      security:
+        authentication:
+          file:
+            enabled: true                                                 
+            users:                                                        
+              ankit: password, ROLE_MANAGE                              
+              vivek: password, ROLE_VIEW, ROLE_CREATE
+              sachin: password, ROLE_VIEW, ROLE_CREATE
+              ravi: password, ROLE_VIEW, ROLE_CREATE, ROLE_MANAGE
