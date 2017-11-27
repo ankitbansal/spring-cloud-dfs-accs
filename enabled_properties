@@ -1,0 +1,9 @@
+Prefix: app.accs.manifest
+type
+startupTime
+
+Prefix: app.accs.deployment
+instances,
+memory,
+services,
+environment
