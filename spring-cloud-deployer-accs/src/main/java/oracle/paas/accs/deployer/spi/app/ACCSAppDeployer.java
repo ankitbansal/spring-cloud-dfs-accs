@@ -1,33 +1,29 @@
 package oracle.paas.accs.deployer.spi.app;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.LogManager;
-import java.util.logging.Logger;
-
-import org.springframework.cloud.deployer.spi.app.AppDeployer;
-import org.springframework.cloud.deployer.spi.app.AppStatus;
-import org.springframework.cloud.deployer.spi.app.DeploymentState;
-import org.springframework.cloud.deployer.spi.core.AppDeploymentRequest;
-import org.springframework.cloud.deployer.spi.core.RuntimeEnvironmentInfo;
-
 import oracle.paas.accs.deployer.spi.accs.client.ACCSClient;
 import oracle.paas.accs.deployer.spi.accs.client.StorageClient;
 import oracle.paas.accs.deployer.spi.accs.model.Application;
 import oracle.paas.accs.deployer.spi.accs.model.ApplicationStatus;
 import oracle.paas.accs.deployer.spi.accs.model.ApplicationStatus.Instances;
 import oracle.paas.accs.deployer.spi.accs.util.ACCSUtil;
+import org.springframework.cloud.deployer.spi.app.AppDeployer;
+import org.springframework.cloud.deployer.spi.app.AppStatus;
+import org.springframework.cloud.deployer.spi.app.DeploymentState;
+import org.springframework.cloud.deployer.spi.core.AppDeploymentRequest;
+import org.springframework.cloud.deployer.spi.core.RuntimeEnvironmentInfo;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ACCSAppDeployer implements AppDeployer {
     private RuntimeEnvironmentInfo runtimeEnvironmentInfo;
     private StorageClient storageClient;
     private ACCSClient accsClient;
     
-    private static final LogManager logManager = LogManager.getLogManager();
     private static Logger logger = Logger.getLogger(ACCSAppDeployer.class.getName());
 
     public ACCSAppDeployer(RuntimeEnvironmentInfo runtimeEnvironmentInfo, ACCSClient accsClient, StorageClient storageClient) {

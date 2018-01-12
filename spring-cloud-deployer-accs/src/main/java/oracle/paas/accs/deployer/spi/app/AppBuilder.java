@@ -138,6 +138,26 @@ public class AppBuilder {
                 accsProperties.put(prop, definitionProperties.get(prop));
             }
         }
+
+        List<String> commandLineArgs = appDeploymentRequest.getCommandlineArguments();
+        if(commandLineArgs != null) {
+            for (String arg : commandLineArgs) {
+                if(arg.startsWith(ACCS) || arg.startsWith("--"+ACCS)) {
+                    String[] values = arg.split("=");
+                    if(values.length != 2) {
+                        logger.log(Level.WARNING, "Invalid command line argument : " +arg);
+                    } else {
+                        if (values[0].startsWith("--")) {
+                            String key = values[0].split("--")[1];
+                            accsProperties.put(key, values[1]);
+                        } else {
+                            accsProperties.put(values[0], values[1]);
+                        }
+                    }
+                }
+
+            }
+        }
         return accsProperties;
     }
 
@@ -191,13 +211,17 @@ public class AppBuilder {
 
     private static boolean isDynamicValue(Map<String, String> args, String prop) {
         Pattern pattern = Pattern.compile(DYNAMIC_VALUE_PATTERN);
-        Matcher matcher = pattern.matcher(args.get(prop));
+        String value = args.get(prop);
+        if(value != null) {
+            Matcher matcher = pattern.matcher(value);
 
-        if(matcher.find()) {
-            return true;
-        }
+            if (matcher.find()) {
+                return true;
+            }
 
             return false;
+        }
+        return false;
     }
 
     private void addDeploymentProperties(List<String> commands) {

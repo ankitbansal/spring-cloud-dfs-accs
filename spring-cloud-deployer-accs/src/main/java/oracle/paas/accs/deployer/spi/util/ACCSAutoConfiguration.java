@@ -75,7 +75,7 @@ public class ACCSAutoConfiguration {
     @Bean
     @ConditionalOnMissingBean(TaskLauncher.class)
     public TaskLauncher taskLauncher() {
-        return new ACCSTaskLauncher(runtime(TaskLauncher.class, ACCSTaskLauncher.class));
+        return new ACCSTaskLauncher(runtime(TaskLauncher.class, ACCSTaskLauncher.class), accsClient(), storageClient());
     }
 
     @Bean
