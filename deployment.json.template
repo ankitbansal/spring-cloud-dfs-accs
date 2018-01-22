@@ -1,21 +1,27 @@
 {
-  "memory": "3G",
+  "memory": "4G",
   "instances": 1,
   "environment": {
-	"ACCS_USERNAME" : "#ACCS_USERNAME",
-	"ACCS_PASSWORD" : "#ACCS_PASSWORD",
+	"ACCS_USERNAME" : "<username>",
+	"ACCS_PASSWORD" : "<password>",
 	"ACCS_URL" : "https://apaas.us.oraclecloud.com/paas/service/apaas/api/v1.1/apps",
-	"ACCS_DOMAIN" : "ocloud100",
-	"ACCS_STORAGE_URI" : "https://ocloud100.storage.oraclecloud.com/v1/Storage-ocloud100/_apaas",
-	"spring_datasource_url" : "jdbc:mysql://129.150.125.142:3306/mydatabase",
-  "spring_datasource_username" : "#DB_USERNAME",
-  "spring_datasource_password" : "#DB_PASSWORD",
+	"ACCS_DOMAIN" : "<identity_domain>",
+	"ACCS_STORAGE_URI" : "https://<identity_domain>.storage.oraclecloud.com/v1/Storage-<identity_domain>/_apaas",
+	"spring_datasource_url" : "jdbc:mysql://$MYSQLCS_CONNECT_STRING",
+  "spring_datasource_username" : "$MYSQLCS_USER_NAME",
+  "spring_datasource_password" : "$MYSQLCS_USER_PASSWORD",
   "spring_datasource_driver-class-name" : "org.mariadb.jdbc.Driver"
   },
   "services": [
     {
 		  "type": "MySQLCS",
-		  "name": "MySqlDataflow"
+		  "name": "<MySQLCS instance name>",
+		  "username": "<MySQLCS username>",
+		  "password": "<MySQLCS password>"
+	  },
+	  {
+		  "type": "OEHPCS",
+		  "name": "<Event Hub instance name>"
 	  }
   ]
 
