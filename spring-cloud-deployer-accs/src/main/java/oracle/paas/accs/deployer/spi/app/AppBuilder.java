@@ -170,10 +170,10 @@ public class AppBuilder {
         addDefinitionProperties(commands);
         addDeploymentProperties(commands);
         commands.addAll(appDeploymentRequest.getCommandlineArguments());
-        logger.log(Level.INFO, "Java Command = " + StringUtils.collectionToDelimitedString(commands, " "));
-        return commands.get(0) + commands.stream()
-                .skip(1)
+        String commandToLaunch = commands.get(0) + commands.stream().skip(1)
                 .collect(Collectors.joining("\" \"", " \"", "\""));
+        logger.log(Level.INFO, "Java Command = " + commandToLaunch);
+        return commandToLaunch;
     }
 
     private void addDefinitionProperties(List<String> commands) {
