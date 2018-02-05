@@ -2,11 +2,7 @@
   "runtime": {
     "majorVersion": "8"
   },
-  "command": "java -jar spring-cloud-dataflow-server-accs-1.0.0-SNAPSHOT.jar --server.port=$PORT --maven.remote-repositories.repo1.url=https://developer.us2.oraclecloud.com/profile/developer48597-ocloud100/s/developer48597-ocloud100_accs-scdf_21925/maven/ --maven.remote-repositories.repo1.auth.username=ankit.a.bansal@oracle.com --maven.remote-repositories.repo1.auth.password=Temp@1234 --spring.cloud.dataflow.applicationProperties.stream.spring.cloud.stream.kafka.binder.brokers=129.150.93.4:6667 --spring.cloud.dataflow.applicationProperties.stream.spring.cloud.stream.kafka.binder.zkNodes=129.150.93.4:2181",
+  "command": "java -jar spring-cloud-dataflow-server-accs-1.0.0-SNAPSHOT.jar --server.port=$PORT --maven.remote-repositories.repo1.url=<Maven repository> --maven.remote-repositories.repo1.auth.username=<Maven repo username> --maven.remote-repositories.repo1.auth.password=<Maven repo password> --spring.cloud.dataflow.applicationProperties.stream.spring.cloud.stream.kafka.binder.brokers=$OEHPCS_EXTERNAL_CONNECT_STRING --spring.cloud.dataflow.applicationProperties.stream.spring.cloud.stream.kafka.binder.zkNodes=<zookeeper_host>:<port>",
   "startupTime": 120,
-  "shutdownTime": 0,
-  "isClustered": false,
-  "requiresAntiAffinity": false,
-  "release": {},
-  "notes": "notes for release"
+  "notes": "Spring Cloud Data Flow server on Oracle Application Container Cloud"
 }
