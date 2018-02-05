@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import static org.springframework.cloud.deployer.spi.app.AppDeployer.GROUP_PROPERTY_KEY;
 
@@ -170,7 +171,9 @@ public class AppBuilder {
         addDeploymentProperties(commands);
         commands.addAll(appDeploymentRequest.getCommandlineArguments());
         logger.log(Level.INFO, "Java Command = " + StringUtils.collectionToDelimitedString(commands, " "));
-        return StringUtils.collectionToDelimitedString(commands, " ");
+        return commands.get(0) + commands.stream()
+                .skip(1)
+                .collect(Collectors.joining("\" \"", " \"", "\""));
     }
 
     private void addDefinitionProperties(List<String> commands) {
